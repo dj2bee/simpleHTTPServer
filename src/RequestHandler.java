@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public class RequestHandler implements HttpHandler {
-    private static final int    INTERNAL_SERVER_ERROR = 500,
+    private static final int    INTERNAL_SERVER_ERROR = 500,    // TODO: Export to enum
                                 NOT_IMPLEMENTED = 501,
                                 SERVICE_UNAVAILABLE = 503,
                                 FORBIDDEN = 403,
@@ -24,14 +24,14 @@ public class RequestHandler implements HttpHandler {
             case "POST":
                 handlePost(httpExchange);
                 break;
-            case "PUT":
-
+            case "PUT": // TODO
+                error(httpExchange, NOT_IMPLEMENTED, "Not implemented.");
                 break;
-            case "DELETE":
-
+        case "DELETE": // TODO
+                error(httpExchange, NOT_IMPLEMENTED, "Not implemented.");
                 break;
             default:
-                error(httpExchange, 501, "No valid HTTP-Request-Method");
+                error(httpExchange, NOT_IMPLEMENTED, "No valid HTTP-Request-Method");
         }
     }
 
